@@ -20,10 +20,10 @@
         <div class="navbar-item">
           <div class="field is-grouped">
             <p class="control">
-              <span>Sign In</span>
+              <router-link to="/login">Login</router-link>
             </p>
             <p class="control">
-              <span>Register</span>
+              <router-link to="/register">Register</router-link>
             </p>
           </div>
         </div>
