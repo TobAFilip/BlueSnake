@@ -1,0 +1,7 @@
+### BlueSnake gitignore list ###
+
+## Client ##
+
+/client/dist/*
+
+## Server ##
