@@ -7,7 +7,7 @@ on:
     branches: [ staging ]
 
 jobs:
-  client:build:
+  vueclient:
     runs-on: ubuntu-latest
     
     steps:
