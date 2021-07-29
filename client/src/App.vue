@@ -35,7 +35,7 @@
     <div class="column is-one-quarter">
     <!-- Empty for now, maybe add sidebar later -->
     </div>
-    <div class="column is-centered has-text-centered">
+    <div class="column is-centered has-text-centered content-margin">
       <router-view/>
     </div>
     <div class="column is-one-quarter">
@@ -63,5 +63,9 @@ export default {
 
 .down-nav-border {
   border-bottom: 5px solid hsl(171, 100%, 41%);
+}
+
+.content-margin {
+  margin-top: 5px;
 }
 </style>
