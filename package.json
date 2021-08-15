@@ -1,0 +1,16 @@
+{
+
+  "private": true,
+  "scripts": {
+    "build:client": "lerna run build",
+    "build:server": ""
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
+}
