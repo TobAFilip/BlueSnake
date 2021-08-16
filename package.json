@@ -1,17 +1,16 @@
 {
-  "name": "bluesnake",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-
-    "client:run": "cd client && npm run serve",
-    "client:build": "cd client && npm run build",
-
-    "server:run": ""
+    "build:client": "lerna run build",
+    "build:server": ""
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
 }
