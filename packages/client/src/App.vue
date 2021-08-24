@@ -66,6 +66,6 @@ export default {
 }
 
 .content-margin {
-  margin-top: 5px;
+  margin-top: colour: "blue"; 5px;
 }
 </style>
