@@ -12,8 +12,9 @@ export const main = async () => {
     const app = express();
     const port = 4000;
 
-    // Connect to DBx
-    mongoose.connect("mongodb+srv://NodeServer:KTxhPzoHhAqWZKPy@bluesnakecluster.v4cw4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
+    // Connect to DB
+    const mongoUri = "mongodb+srv://NodeServer:KTxhPzoHhAqWZKPy@bluesnakecluster.v4cw4.mongodb.net/bluesnake?retryWrites=true&w=majority"
+    mongoose.connect(String(mongoUri), {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useCreateIndex: true,
@@ -34,6 +35,7 @@ export const main = async () => {
     app.use(cors());
     app.use(helmet());
     app.use(morgan("dev"));
+    app.use(express.json());
 
     // Register router
     app.use("/api", router)

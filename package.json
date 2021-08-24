@@ -1,5 +1,4 @@
 {
-
   "private": true,
   "scripts": {
     "build:client": "lerna run build",
@@ -12,5 +11,6 @@
   },
   "devDependencies": {
     "lerna": "^4.0.0"
-  }
+  },
+  "dependencies": {}
 }
