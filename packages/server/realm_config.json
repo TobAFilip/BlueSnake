@@ -1,0 +1,8 @@
+{
+    "app_id": "bluesnake-pqwvq",
+    "config_version": 20210101,
+    "name": "BlueSnake",
+    "location": "US-VA",
+    "deployment_model": "GLOBAL",
+    "environment": "development"
+}
