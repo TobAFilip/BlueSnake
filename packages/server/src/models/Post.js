@@ -15,17 +15,23 @@ const postSchema = new mongoose.Schema({
     image: {
         type: Buffer
     },
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
+    userid: {
+        type: String,
         required: true,
-        ref: "User"
     },
     creationDate: {
         type: Date,
         default: Date.now
     },
+    // Dive Metadata
+    postType: {
+        type: String
+    },
     diveLocation: {
         type: String
+    },
+    diveTime: {
+
     },
     diveDepth: {
         type: Number

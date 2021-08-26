@@ -3,11 +3,12 @@ const authRouter = express.Router();
 
 import * as bcrypt from "bcrypt";
 import { uuid } from "uuidv4";
-import * as jwt from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 
 import { User } from "../../models/User.js";
 import { Response } from "../../utils/response.js";
-import { hashPass } from "../../utils/hashPassword.js";
+
+const SALT_FACTOR = 10;
 
 // Register user
 authRouter.post("/register", async (req, res) => {
@@ -27,26 +28,26 @@ authRouter.post("/login", async (req, res) => {
             res.status(400).json(new Response("Invalid username", undefined));
         }
 
-        // Debug
-        console.log(password);
-        console.log(await bcrypt.hash(password, 10));
-
         // Compare user password
-        await bcrypt.compare(password, user.password, (match) => {
-            if (match) {
-                // Generate token
-                user.token = jwt.sign({
-                    uid: user._id,
-                }, JWTSecret, {
-                    expiresIn: "2h"
-                });
+        if (await bcrypt.compare(password, user.password)) {
+            // Generate token
+            const token = jwt.sign({
+                uid: user._id,
+            }, JWTSecret, {
+                expiresIn: "2h"
+            });
 
-                res.status(200).json(new Response(undefined, user));
-            }
-        });
+            // Log that user logged in
+            console.log(`User ${user._id} logged in`);
 
-        // Invalid password
-        res.status(400).json(new Response("Invalid password", undefined))
+            res.status(200).json(new Response(undefined, {
+                user,
+                token: token
+            }));
+        } else {
+            // Invalid password
+            res.status(400).json(new Response("Invalid password", undefined))
+        }
     } catch (err) {
         // Server error
         res.status(500).json(new Response("Server error", undefined));
@@ -54,24 +55,46 @@ authRouter.post("/login", async (req, res) => {
     }
 });
 
-// Test
+// Create test user
 authRouter.get("/test-create-user", async (req, res) => {
-    const password = hashPass("password");
 
-    console.log(password);
+    // Generate salt
+    bcrypt.genSalt(SALT_FACTOR, (err, salt) => {
+        // If error, log it
+        if (err) {
+            console.log(err);
+        }
 
-    const user = new User({
-        name: "Jake",
-        username: "Jake123",
-        email: "jake@email.com",
-        password: password
+        // Password
+        const password = "password";
+
+        // Hash password using salt
+        bcrypt.hash(password, salt, (err, hash) => {
+            // If error, log it
+            if (err) {
+                console.log(err);
+            }
+
+            console.log(hash);
+
+            // If successful, create user
+            if (hash) {
+
+                // Create user
+                const user = new User({
+                    name: "Jake",
+                    username: "Jake123",
+                    email: "jake@email.com",
+                    password: hash
+                });
+
+                user.save();
+
+                // Send user back
+                res.status(201).json(user);
+            }
+        });
     });
-
-
-
-    await user.save();
-
-    res.send(user);
 });
 
 export default authRouter;

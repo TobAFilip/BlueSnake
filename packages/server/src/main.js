@@ -10,11 +10,11 @@ import router from "./routes/router.js";
 export const main = async () => {
     // Express setup
     const app = express();
-    const port = 4000;
+    const port = process.env.PORT;
 
     // Connect to DB
-    const mongoUri = "mongodb+srv://NodeServer:KTxhPzoHhAqWZKPy@bluesnakecluster.v4cw4.mongodb.net/bluesnake?retryWrites=true&w=majority"
-    mongoose.connect(String(mongoUri), {
+    const mongoUri = process.env.MONGO_URI
+    mongoose.connect(mongoUri, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useCreateIndex: true,
