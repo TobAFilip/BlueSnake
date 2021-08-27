@@ -31,7 +31,8 @@ const postSchema = new mongoose.Schema({
         type: String
     },
     diveTime: {
-
+        type: Number
+        // Minutes
     },
     diveDepth: {
         type: Number

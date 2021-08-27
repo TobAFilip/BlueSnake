@@ -25,7 +25,7 @@ authRouter.post("/login", async (req, res) => {
         const user = await User.findOne({ username }).exec();
 
         if (!user) {
-            res.status(400).json(new Response("Invalid username", undefined));
+            res.status(400).json(new Response(["Invalid username"], undefined));
         }
 
         // Compare user password
@@ -40,17 +40,17 @@ authRouter.post("/login", async (req, res) => {
             // Log that user logged in
             console.log(`User ${user._id} logged in`);
 
-            res.status(200).json(new Response(undefined, {
+            res.status(200).json(new Response([undefined], {
                 user,
                 token: token
             }));
         } else {
             // Invalid password
-            res.status(400).json(new Response("Invalid password", undefined))
+            res.status(400).json(new Response(["Invalid password"], undefined));
         }
     } catch (err) {
         // Server error
-        res.status(500).json(new Response("Server error", undefined));
+        res.status(500).json(new Response(["Server error"], undefined));
         console.log(err);
     }
 });
@@ -91,7 +91,7 @@ authRouter.get("/test-create-user", async (req, res) => {
                 user.save();
 
                 // Send user back
-                res.status(201).json(user);
+                res.status(201).json(new Response([undefined], user));
             }
         });
     });

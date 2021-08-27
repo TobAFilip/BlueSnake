@@ -1,6 +1,6 @@
 export class Response {
     constructor(error, res) {
-        this.error = [error];
+        this.err = error;
         this.res = res;
     }
 }
