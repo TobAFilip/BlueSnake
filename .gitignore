@@ -1,7 +1,20 @@
 ### BlueSnake gitignore list ###
 
-## Client ##
+## Global ##
+.idea/*
+.vscode
+.DS_Store
 
-/client/dist/*
+
+## Yarn ##
+node_modules/*
+yarn-error.log
+
+## Client ##
+/packages/client/dist/*
+/packages/client/.DS_Store
 
 ## Server ##
+/packages/server/.DS_Store
+
+## Common ##

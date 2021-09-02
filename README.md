@@ -7,3 +7,6 @@
 [comment]: <> (App decription)
 
 A social media platform for divers to meet each other and to share their dives.
+It was started by to students of MENSA Gymnasium.
+
+[comment]: <> (Future Plans)

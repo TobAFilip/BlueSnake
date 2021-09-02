@@ -21,7 +21,13 @@ let wordlist = {
             about_link: "About",
             login_link: "Login",
             register_link: "Register"
-        }
+        },
+        about: {
+            heading: "About Us",
+            about_us_text: "Blue snake is a social media network for scuba divers to share their diving adventures " +
+                "and to meet new new people with same interests"
+
+        },
     }
 }
 

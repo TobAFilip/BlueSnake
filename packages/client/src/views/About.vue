@@ -1,8 +1,19 @@
 <template>
   <div class="about">
-    <h1>ABOUT</h1>
-    <p>Blue snake is a social media network for scuba divers made by two students as a school project at MENSA Gymnasium.
-    This project is programmed in vue.js and powered by netlify.</p>
-    <a href="https://github.com/TobAFilip/BlueSnake" target=_blank>Our github</a>
+    <h1>{{ wordlist().about.heading }}</h1>
+    <p>{{ wordlist().about.about_us_text }}</p>
   </div>
 </template>
+
+<script>
+import { getSelectedWordlist as wordlist } from "../scripts/wordlist";
+
+export default {
+  name: "about",
+  data() {
+    return {
+      wordlist
+    }
+  }
+}
+</script>
