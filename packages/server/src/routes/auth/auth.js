@@ -25,32 +25,32 @@ authRouter.post("/login", async (req, res) => {
         const user = await User.findOne({ username }).exec();
 
         if (!user) {
-            res.status(400).json(new Response(["Invalid username"], undefined));
-        }
-
-        // Compare user password
-        if (await bcrypt.compare(password, user.password)) {
-            // Generate token
-            const token = jwt.sign({
-                uid: user._id,
-            }, JWTSecret, {
-                expiresIn: "2h"
-            });
-
-            // Log that user logged in
-            console.log(`User ${user._id} logged in`);
-
-            res.status(200).json(new Response([undefined], {
-                user,
-                token: token
-            }));
+            res.json(new Response(["Invalid username"], undefined));
         } else {
-            // Invalid password
-            res.status(400).json(new Response(["Invalid password"], undefined));
+            // Compare password
+            if (await bcrypt.compare(password, user.password)) {
+                // Generate token
+                const token = jwt.sign({
+                    uid: user._id,
+                }, JWTSecret, {
+                    expiresIn: "2h"
+                });
+
+                // Log that user logged in
+                console.log(`User ${user._id} logged in`);
+
+                res.json(new Response([undefined], {
+                    user,
+                    token: token
+                }));
+            } else {
+                // Invalid password
+                res.json(new Response(["Invalid password"], undefined));
+            }
         }
     } catch (err) {
         // Server error
-        res.status(500).json(new Response(["Server error"], undefined));
+        res.json(new Response(["Server error"], undefined));
         console.log(err);
     }
 });
@@ -91,7 +91,7 @@ authRouter.get("/test-create-user", async (req, res) => {
                 user.save();
 
                 // Send user back
-                res.status(201).json(new Response([undefined], user));
+                res.json(new Response([undefined], user));
             }
         });
     });

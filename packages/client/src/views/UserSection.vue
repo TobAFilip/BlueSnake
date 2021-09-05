@@ -1,0 +1,23 @@
+<template>
+  <div class="columns is-mobile">
+    <div class="column is-one-quarter">
+      <!-- Empty for now, maybe add sidebar later -->
+    </div>
+    <div class="column is-centered has-text-centered content-margin">
+      <router-view/>
+    </div>
+    <div class="column is-one-quarter">
+      <!-- Empty for now, maybe add sidebar later -->
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "UserSection"
+}
+</script>
+
+<style scoped>
+
+</style>

@@ -1,5 +1,5 @@
 <template>
-  <h1></h1>
+  <h1>Some cool stuff in Feed</h1>
 </template>
 
 <script>

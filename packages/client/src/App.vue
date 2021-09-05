@@ -1,5 +1,6 @@
 <template>
-  <Navbar />
+  <LoggedInNavbar v-if="loggedInNavbar" />
+  <Navbar v-else />
 
   <div class="columns is-mobile">
     <div class="column is-one-quarter">
@@ -16,16 +17,19 @@
 
 <script>
 import Navbar from "./components/Navbar";
+import LoggedInNavbar from "./components/LoggedInNavbar";
 import { getSelectedWordlist as wordlist } from "./scripts/wordlist";
 
 export default {
   name: "app",
   components: {
-    Navbar
+    Navbar,
+    LoggedInNavbar
   },
   data() {
     return {
-      wordlist
+      wordlist,
+      loggedInNavbar: this.$store.getters.getLoginState,
     }
   }
 }

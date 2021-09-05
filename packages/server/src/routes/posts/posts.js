@@ -15,7 +15,7 @@ postRouter.get("/list-posts", checkAuth, async (req, res) => {
         // Fetch DB for posts
         const posts = await Post.find().exec();
 
-        res.status(200).json(new Response([undefined], {
+        res.json(new Response([undefined], {
             posts: posts
         }));
     } catch (err) {
@@ -54,13 +54,13 @@ postRouter.post("/create-dive-journey", checkAuth, async (req, res) => {
         await post.save();
 
         // Return data
-        res.status(201).json(new Response([undefined], post));
+        res.json(new Response([undefined], post));
     } catch (err) {
         const errors = formatYupError(err);
         console.log(errors);
 
         // Return errors
-        res.status(400).json(new Response(errors, undefined))
+        res.json(new Response(errors, undefined))
     }
 });
 
