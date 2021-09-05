@@ -25,7 +25,8 @@ const routes = [
     path: "/user-section",
     component: () => import("../views/UserSection"),
     children: [
-      { path: "/feed", name: "feed", component: () => import("../views/user-section/Feed") }
+      { path: "/feed", name: "feed", component: () => import("../views/user-section/Feed") },
+      { path: "/create-post", name: "create-post", component: () => import("../views/user-section/CreatePost") }
     ]
   }
 ]
