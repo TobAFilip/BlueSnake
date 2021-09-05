@@ -1,8 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "build:client": "lerna run build --scope={@bluesnake/client}",
-    "build:server": "lerna run build --scope={@bluesnake/server, @bluesnake/common}"
+    "build:client": "lerna run build --scope @bluesnake/client",
+    "build:server": "lerna run build --scope @bluesnake/server, @bluesnake/common"
   },
   "workspaces": {
     "packages": [
