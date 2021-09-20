@@ -14,10 +14,16 @@
 
 <script>
 export default {
-  name: "UserSection"
+  name: "UserSection",
+  created() {
+    if (!this.$store.state.auth.isLoggedIn) {
+      this.$router.push({
+        name: "Login"
+      });
+    }
+  }
 }
 </script>
 
 <style scoped>
-
 </style>

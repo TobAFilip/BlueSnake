@@ -3,8 +3,6 @@
     <h1 class="title">Login</h1>
 
     <div class="notification is-warning" v-if="errors.hasErrors">
-      <button class="delete" @click="deleteButton"></button>
-
       {{ errors.errors }}
     </div>
 
@@ -47,7 +45,7 @@ export default {
       errors: {
         errors: "",
         hasErrors: false
-      }
+      },
     }
   },
   methods: {
@@ -55,20 +53,21 @@ export default {
       try {
         const res = await login(this.loginData);
 
-        console.log(res.data.err[0]);
         if (res.data.err[0] === null) {
+          // Save data to store
           this.$store.dispatch("setToken", res.data.res.token);
           this.$store.dispatch("setUser", res.data.res.user);
+
+          // Redirect to feed
           await this.$router.push({
             name: "feed"
-          })
+          });
         } else {
           const errs = res.data.err.join("<br />");
           this.errors.hasErrors = true;
           this.errors.errors = errs;
         }
       } catch (err) {
-        console.log("Login failed");
         console.log(err);
       }
     },

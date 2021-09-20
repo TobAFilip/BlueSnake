@@ -5,7 +5,6 @@ import { validDiveJourneySchema } from "@bluesnake/common"
 
 import { checkAuth } from "../../utils/check-auth.js";
 import { Post } from "../../models/Post.js";
-import { User } from "../../models/User.js"
 import { formatYupError } from "../../utils/formatYupError.js"
 import { Response } from "../../utils/response.js"
 

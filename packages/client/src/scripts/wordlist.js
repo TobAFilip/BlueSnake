@@ -20,7 +20,11 @@ let wordlist = {
             home_link: "Home",
             about_link: "About",
             login_link: "Login",
-            register_link: "Register"
+            register_link: "Register",
+            logout_link: "Logout",
+            profile_link: "Profile",
+            create_post_link: "Create post",
+            feed_link: "Feed"
         },
         about: {
             heading: "About Us",
@@ -31,6 +35,12 @@ let wordlist = {
                 "\n\n Contact: contact.bluesnake@gmail.com"
 
         },
+        feed: {
+            feed_title: "Feed",
+            no_feed_posts: "There is nothing..",
+            dive_depth: "Dive Depth",
+            dive_time: "Dive Time"
+        }
     }
 }
 

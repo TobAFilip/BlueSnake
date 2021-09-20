@@ -11,18 +11,18 @@
 
     <div id="navbarExampleTransparentExample" class="navbar-menu">
       <div class="navbar-start">
-        <router-link class="navbar-item" to="/">{{ wordlist().navbar.home_link }}</router-link>
-        <router-link class="navbar-item" to="/about">{{ wordlist().navbar.about_link }}</router-link>
+        <router-link class="navbar-item" to="/">{{ wordlist().navbar.feed_link }}</router-link>
+        <router-link class="navbar-item" to="/about">{{ wordlist().navbar.create_post_link }}</router-link>
       </div>
 
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="field is-grouped">
             <p class="control">
-              <router-link to="/login">Profile</router-link>
+              <router-link to="/login">{{ wordlist().navbar.profile_link }}</router-link>
             </p>
             <p class="control">
-              <router-link to="/register">Log out</router-link>
+              <router-link to="/register">{{ wordlist().navbar.logout_link }}</router-link>
             </p>
           </div>
         </div>
