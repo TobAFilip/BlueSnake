@@ -31,8 +31,8 @@ let wordlist = {
             about_us_text: "Blue snake is a social media network for scuba divers to share their diving adventures " +
                 "and to meet new new people with same interests. " +
                 "If you'd like to join, contact us and we wil allow jou to join. " +
-                "This is temporary solution and we will add option to register in near future. " +
-                "\n\n Contact: contact.bluesnake@gmail.com"
+                "This is temporary solution and we will add option to register in near future. ",
+            contact: "Contact: contact.bluesnake@gmail.com",
 
         },
         feed: {
