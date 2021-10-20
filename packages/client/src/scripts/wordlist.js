@@ -40,18 +40,30 @@ let wordlist = {
             no_feed_posts: "There is nothing..",
             dive_depth: "Dive Depth",
             dive_time: "Dive Time"
+        },
+        createPost: {
+            create_post_title: "Create new post",
+            createpost_form_title: "Title",
+            createpost_form_description: "Description",
+            createpost_form_dive_location: "Dive location",
+            createpost_form_dive_time: "Dive time",
+            createpost_form_dive_depth: "Dive depth",
+            createpost_form_dive_depth_placeholder: "In meters"
         }
     }
 }
 
 let lang = "en";
-
 let selectedWordlist;
 
-switch (lang) {
-    case "en": selectedWordlist = wordlist.en;
-}
+export let setLang = (newLang) => {
+    lang = newLang;
+};
 
 export let getSelectedWordlist = () => {
+    switch (lang) {
+        case "en": selectedWordlist = wordlist.en;
+    }
+
     return selectedWordlist;
 }

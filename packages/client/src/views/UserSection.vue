@@ -15,11 +15,20 @@
 <script>
 export default {
   name: "UserSection",
+  data() {
+    return {
+      requiredLogin: false
+    }
+  },
   created() {
-    if (!this.$store.state.auth.isLoggedIn) {
-      this.$router.push({
-        name: "Login"
-      });
+    if (this.requiredLogin) {
+      console.log("Checking for login");
+
+      if (!this.$store.state.auth.isLoggedIn) {
+        this.$router.push({
+          name: "Login"
+        });
+      }
     }
   }
 }
